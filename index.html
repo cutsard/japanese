@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: #0d0e0f;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex; /* Use flexbox to lay out the toc and the image side by side */
+            align-items: flex-start; /* Align the items to the start of the container */
+            padding-top: 50px;
+            justify-content: center;
+        }
+        .content {
+        flex: 1; /* Allow the content to grow and shrink as needed */
+        padding-left: 192px; /* Original padding */
+        max-width: 800px; /* Set a max-width for the content area if needed */
+        }
+        ul.toc {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul.toc li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        ul.toc li {
+            margin: 5px 0;
+        }
+        img.anime-figure {
+            width: 0%; /* Your desired width */
+            min-width: 100px; /* Set a minimum width so it doesn't get too small */
+            height: auto; /* Maintain aspect ratio */
+            margin-left: 55%; /* Push the image to the right */
+            margin-right: 2%; /* Add some padding on the right if needed */
+            align-self: flex-start; /* Align the image to the top */
+            margin-top: -230px; /* Adjust this value to move the image up as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <header>
+            <br><h1>custards japanese guide</h1>
+        </header>
+        <br>
+        <nav>
+            <ul class="toc">
+                <li><a href="#section1">start here</a></li><br>
+                <li><a href="#section2">resources</a></li><br>
+                <li><a href="#section3">discord</a></li><br>
+                <li><a href="#section4">special thanks</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Place image outside of the .content but inside .container so it stays aligned with toc -->
+    <img class="anime-figure" src="mizore-shirayuki.png" alt="Mizore Shirayuki from Rosario Vampire" />
+</body>
+</html>

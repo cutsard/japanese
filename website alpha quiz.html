@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>start here - japanese level assessment</title>
+    <style>
+        body {
+            background-color: #0d0e0f;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding-top: 50px;
+            padding-left: 192px;
+        }
+        .question {
+            display: none; /* Hide all questions initially */
+            margin-bottom: 20px;
+        }
+        .question.active {
+            display: block; /* Show only the active question */
+        }
+        label, .result {
+            display: block;
+            margin: 10px 0;
+            font-size: 1em;
+            text-decoration: none;
+        }
+        .btn {
+            background-color: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover, .btn.active {
+            background-color: #ffffff40; /* Light up the button a bit when hovered or active */
+        }
+        #submitBtn {
+            display: none; /* Hide the submit button initially */
+            color: #0d0e0f;
+            background-color: #fff;
+            border: none;
+            padding: 10px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        a {
+        color: #39FF14; /* Neon green color */
+        text-decoration: none; /* Removes the underline */
+    }
+
+    a:hover, a:focus {
+        text-decoration: underline; /* If you want the underline to appear on hover for better user experience */
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>japanese level assessment</h1><br><br>
+        <div id="questions">
+            <div class="question active" data-question="beginner">
+                <label>are you a complete beginner?</label>
+                <button class="btn" onclick="chooseOption('beginner', 'yes')">yes</button>
+                <button class="btn" onclick="chooseOption('beginner', 'no')">no</button>
+            </div>
+            <div class="question" data-question="kana">
+                <label>do you know how to read kana?</label>
+                <button class="btn" onclick="chooseOption('kana', 'yes')">yes</button>
+                <button class="btn" onclick="chooseOption('kana', 'no')">no</button>
+            </div>
+            <div class="question" data-question="anki">
+                <label>do you use anki?</label>
+                <button class="btn" onclick="chooseOption('anki', 'yes')">yes</button>
+                <button class="btn" onclick="chooseOption('anki', 'no')">no</button>
+            </div>
+            <div class="question" data-question="monolingual">
+                <label>are you capable of learning vocabulary through a monolingual dictionary?</label>
+                <button class="btn" onclick="chooseOption('monolingual', 'yes')">yes</button>
+                <button class="btn" onclick="chooseOption('monolingual', 'no')">no</button>
+            </div>
+        </div>
+        <button id="submitBtn" onclick="showResult()">submit</button>
+        <div id="result" class="result"></div>
+    </div>
+    <script>
+        var answers = {};
+    
+        function chooseOption(question, option) {
+            answers[question] = option;
+            var currentQuestion = document.querySelector('.question.active');
+            currentQuestion.classList.remove('active');
+            // Highlight the chosen button
+            var buttons = currentQuestion.querySelectorAll('.btn');
+            buttons.forEach(button => button.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (question === 'beginner' && option === 'yes') {
+                showBeginnerText();
+            } else {
+                // Show the next question
+                var nextQuestion = currentQuestion.nextElementSibling;
+                if (nextQuestion) {
+                    nextQuestion.classList.add('active');
+                } else {
+                    // If all questions are answered, show the result based on the answers
+                    showResult();
+                }
+            }
+        }
+    
+        function showResult() {
+            // Check the answers and provide the corresponding advice
+            if (answers.beginner === 'no' && answers.kana === 'yes' && answers.anki === 'no') {
+                // Intermediate-Beginners
+                showIntermediateBeginnerText();
+            } else if (answers.beginner === 'no' && answers.kana === 'yes' && answers.anki === 'yes') {
+                // Intermediates
+                showIntermediateText();
+            } else if (answers.beginner === 'no' && answers.kana === 'yes' && answers.monolingual === 'yes') {
+                // Highly Advanced
+                showAdvancedText();
+            } else {
+                // Default case if the path is not recognized
+                document.getElementById('result').textContent = 'please proceed to the next section for more tailored advice.';
+            }
+        }
+    
+        function showBeginnerText() {
+    document.getElementById('result').innerHTML = `
+        <p>when learning complex languages, such as japanese, it's important to understand the concepts behind how humans learn them. understanding theory is required in building an effective path towards fluency. the journey involves not just memorization or mechanical repetition, but an immersive experience that engages the learner at multiple levels.</p>
+        <p>linked is a <a href="https://youtu.be/NiTsduRreug?si=qkGO3oy9ulkPNUL6" target="_blank">video on stephen krashen's language acquisition theory</a>. his theory is backed by empirical evidence and his contributions have enhanced and heavily refined methods used in the japanese learning community.</p>
+        <p>another thing you need to consider is what your goals are. do you want to master all aspects of the language, or are you looking to speak with others?</p>
+        <p>choose an area of the language you would like to learn first. if you haven't already learned kana, now is a good time to do so. after this, most people either choose to go through pre-made anki decks, grammar study, or will immerse. i recommend going through a "formal-study" phase, which should last around 300 hours.</p>
+        <p>another key thing to remember that nobody ever talks about is, is that japanese isn't for everyone. it takes consistent effort to make it, and to a lot of people, the idea of being fluent is more glamorous than actually <i>being</i> fluent.</p>
+        <p>if you understand this and are willing to commit to learning, please take a look at the resources page.</p>
+    `;
+    // Hide the questions
+    document.getElementById('questions').style.display = 'none';
+}
+
+        function showIntermediateBeginnerText() {
+        document.getElementById('result').innerHTML = `
+        <p>you've made a commendable leap into the world of japanese by mastering kana, which lays the foundation for your journey ahead. the path is now branching out, and it's important to choose the direction that aligns with your learning style and goals.</p>
+        <p>since you're not using anki, consider exploring it as a tool to effectively manage your growing vocabulary. anki's spaced repetition system can be a powerful ally. it helps you remember not just words, but the context and nuances of their usage. for sentence mining and deck creation, there are abundant resources available to guide you.</p>
+        <p>as for grammar, immersive learning can be incredibly effective. try incorporating native content into your study routine, whether it's through reading simple stories or watching children's shows. and remember, it's okay to take small steps; consistent, enjoyable engagement is key to long-term retention.</p>
+    `;
+    // Hide the questions
+    document.getElementById('questions').style.display = 'none';
+}
+
+    
+        function showIntermediateText() {
+        document.getElementById('result').innerHTML = `
+        <p>your progress in japanese is impressive; you've moved beyond the basics and are actively shaping your linguistic landscape. now, it's about refining your skills, and anki can be an integral part of this process if you're not already using it.</p>
+        <p>consider diving into native materials that challenge you. look for content that interests you and start building your personal database of sentences and vocabulary. this is not just about learning language; it's about connecting with the culture and thinking in japanese.</p>
+        <p>remember to balance your routine with both structured study and free-flowing immersion. and if you haven't yet, it might be time to push your boundaries with monolingual resources, which can deepen your understanding and help you think more directly in japanese.</p>
+    `;
+    // Hide the questions
+    document.getElementById('questions').style.display = 'none';
+}
+    
+        function showAdvancedText() {
+        document.getElementById('result').innerHTML = `
+        <p>you are at a stage where japanese is becoming part of your daily life, and the richness of direct language experience is within your grasp. the monolingual journey unfolds a deeper understanding of nuances, idioms, and the cultural heartbeat of the language.</p>
+        <p>this is the time to embrace the vast expanse of native materials - from novels to news, movies to podcasts. anki may still serve you, but as a companion rather than a guide. it's an opportunity to fine-tune your knowledge, fill in the gaps, and gather specialized vocabulary that interests you.</p>
+        <p>seek out conversations with native speakers, join online communities, and challenge yourself with output. the road ahead is one of maintenance and exploration, where every interaction is a chance to learn something new.</p>
+    `;
+    // Hide the questions
+    document.getElementById('questions').style.display = 'none';
+}
+    </script>    
+</body>
+</html>
