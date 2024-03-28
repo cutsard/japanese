@@ -132,7 +132,9 @@
                 // Highly Advanced
                 showAdvancedText();
             } else {
-                document.getElementById('result').textContent = 'please proceed to the <a href="https://cutsard.github.io/japanese/#section2">next section</a> for more tailored advice.';
+                document.getElementById('result').innerHTML = `
+                <p>please proceed to the <a href="https://cutsard.github.io/japanese/#section2">next section</a> for more tailored advice.</p>
+                `;
             }
         }
     
