@@ -131,12 +131,13 @@
                 // Highly Advanced
                 showAdvancedText();
             } else {
-                document.getElementById('result').textContent = 'please proceed to the next section for more tailored advice.';
+                document.getElementById('result').textContent = 'please proceed to the <a href="https://cutsard.github.io/japanese/#section2">next section</a> for more tailored advice.';
             }
         }
     
         function showBeginnerText() {
     document.getElementById('result').innerHTML = `
+        <p>level: <b>beginner</b></p>
         <p>when learning complex languages, such as japanese, it's important to understand the concepts behind how humans learn them. understanding theory is required in building an effective path towards fluency. the journey involves not just memorization or mechanical repetition, but an immersive experience that engages the learner at multiple levels.</p>
         <p>linked is a <a href="https://youtu.be/NiTsduRreug?si=qkGO3oy9ulkPNUL6" target="_blank">video on stephen krashen's language acquisition theory</a>. his theory is backed by empirical evidence and his contributions have enhanced and heavily refined methods used in the japanese learning community.</p>
         <p>another thing you need to consider is what your goals are. do you want to master all aspects of the language, or are you looking to speak with others?</p>
@@ -149,6 +150,7 @@
 
         function showIntermediateBeginnerText() {
         document.getElementById('result').innerHTML = `
+        <p>level: <b>beginner-intermediate</b></p>
         <p>as you aren't a complete beginner but do not use anki, i strongly recommend doing so. a major part of learning a language is from something called spaced repition. think about it. if you were to only hear a word once in your native language, chances are you wouldn't know that word. that's why you hear students always say "when am i gonna use this in the real world?" in school. it's cause that concept is studied once, but they never actually fully understand it since it's never brought up ever again.</p>
         <p>anki solves this problem by showing you concepts, whatever you choose to make a flashcard out of, at a specific interval. cards never stack up as this interval is exponential, so you're able able to learn at a highly efficient rate. if however, you are not interested in using anki for studying japanese, it's commonly understood that one should spend far more time with the language. if you aren't being called to memorize and enforce new or existing vocab, do not spend time with the language, common sense is japanese isn't being learned.</p>
         <p>you will hear that raw immersion is actually less important if you are still formally studying. while not backed scientifically, this idea is commonly shared in the japanese language learning community. as for the reason, i believe it's because our brains are wired to learn in an artifical manner, so it can be useful to take an artifical route of learning in the very beginning. as time passes, formal study becomes more futile. immersion is more tolerable as your brain reverts to it's natural state of language learning (see krashen's <a href="https://youtu.be/NiTsduRreug?si=qkGO3oy9ulkPNUL6" target="_blank">acquisition theory</a>).</p>
@@ -161,18 +163,22 @@
     
         function showIntermediateText() {
         document.getElementById('result').innerHTML = `
-        <p>your progress in japanese is impressive; you've moved beyond the basics and are actively shaping your linguistic landscape. now, it's about refining your skills, and anki can be an integral part of this process if you're not already using it.</p>
-        <p>consider diving into native materials that challenge you. look for content that interests you and start building your personal database of sentences and vocabulary. this is not just about learning language; it's about connecting with the culture and thinking in japanese.</p>
+        <p>level: <b>intermediate</b></p>
+        <p>though this quiz is short, i assume you're at a level where you know the amount of time and effort it takes to become fluent. you probably know how important immersion is as well so i won't dive into that idea too much.</p>
+        <p>i would consider diving into native materials that challenge you. look for content that interests you and start building your personal database of sentences and vocabulary. this is not just about learning language; it's about connecting with the culture and thinking in japanese.</p>
         <p>remember to balance your routine with both structured study and free-flowing immersion. and if you haven't yet, it might be time to push your boundaries with monolingual resources, which can deepen your understanding and help you think more directly in japanese.</p>
+        <p>please check out the <a href="https://cutsard.github.io/japanese/#section2">resources</a> page to find suggestions on native material based on how advanced you are.</p>
     `;
     document.getElementById('questions').style.display = 'none';
 }
     
         function showAdvancedText() {
         document.getElementById('result').innerHTML = `
-        <p>you are at a stage where japanese is becoming part of your daily life, and the richness of direct language experience is within your grasp. the monolingual journey unfolds a deeper understanding of nuances, idioms, and the cultural heartbeat of the language.</p>
-        <p>this is the time to embrace the vast expanse of native materials - from novels to news, movies to podcasts. anki may still serve you, but as a companion rather than a guide. it's an opportunity to fine-tune your knowledge, fill in the gaps, and gather specialized vocabulary that interests you.</p>
-        <p>seek out conversations with native speakers, join online communities, and challenge yourself with output. the road ahead is one of maintenance and exploration, where every interaction is a chance to learn something new.</p>
+        <p>level: <b>advanced</b></p>
+        <p>you are at a stage where japanese is becoming part of your daily life, and the richness of direct language experience is within your grasp. i think the monolingual journey unfolds a deeper understanding of nuances, idioms, and the essence of the language.</p>
+        <p>this is the time to embrace the vast expanse of native materials - from novels to news, movies to podcasts. anki may still serve you, but as a companion rather than a guide. it's an opportunity to fine-tune your knowledge, <b>fill in the gaps</b>, and gather specialized vocabulary that interests you.</p>
+        <p>i highly recommend seeking out conversations with native speakers, join online communities, and challenge yourself with output. the road ahead is one of maintenance and exploration, where every interaction is a chance to learn something new.</p>
+        <p>i also have recommendations on free ways you can connect with native speakers through online gaming communities. if this is something you're interested in, please check out the <a href="https://cutsard.github.io/japanese/#section2">resources</a> page.</p>
     `;
     document.getElementById('questions').style.display = 'none';
 }
